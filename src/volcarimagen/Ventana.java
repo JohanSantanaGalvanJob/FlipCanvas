@@ -60,6 +60,28 @@ public class Ventana extends JFrame {
         angulo_text= new JTextField();
         angulo_text.setBounds(600,800,200,20);
         add(angulo_text);
+          angulo_text.addKeyListener(new KeyListener(){
+        public void keyTyped(KeyEvent evt){
+             char c = evt.getKeyChar();
+      if (!(Character.isDigit(c) || c == KeyEvent.VK_BACK_SPACE || c == KeyEvent.VK_DELETE)) {
+            getToolkit().beep();
+            evt.consume();
+        }
+        if(angulo_text.getText().length() >=3){
+            evt.consume();
+        }
+        }
+
+            @Override
+            public void keyPressed(KeyEvent e) {
+                
+            }
+
+            @Override
+            public void keyReleased(KeyEvent e) {
+                
+            }
+    });
         setVisible(true);
     }
 
